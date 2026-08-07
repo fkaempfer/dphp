@@ -12,6 +12,7 @@ RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf && \
     sed -i 's#<Directory "/var/www/html">#<Directory "/app">#' /etc/httpd/conf/httpd.conf && \
     sed -i 's/AllowOverride None/AllowOverride All/' /etc/httpd/conf/httpd.conf && \
     sed -i 's#^ErrorLog "logs/error_log"#ErrorLog "/dev/stderr"#' /etc/httpd/conf/httpd.conf
+COPY 10-php.conf /etc/httpd/conf.modules.d/10-php.conf
 
 RUN echo "log_errors = On" >> /etc/php.d/99-legacy.ini && \
     echo "error_log = /dev/stderr" >> /etc/php.d/99-legacy.ini
