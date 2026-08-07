@@ -5,4 +5,18 @@ The image simply uses php internal server and almalinux+remi packages.
 
 ## Disclaimer
 - *Do not expose these applications to the open internet. These are EOL versions of PHP.*
-- Some of the CI/boilerplate code is AI generated 
+- Some of the CI/Readme/boilerplate code is AI generated 
+
+## Quick Start
+
+Run the container locally with your current directory mounted:
+
+```bash
+docker run -p 8080:8080 -v $(pwd):/app ghcr.io/fkaempfer/dphp:7.4
+```
+
+## Container Registry & Index
+
+All published images and timestamped tags are hosted on GitHub Container Registry (GHCR):
+
+* 🌐 [https://github.com/fkaempfer/dphp/pkgs/container/dphp](https://github.com/fkaempfer/dphp/pkgs/container/dphp)
