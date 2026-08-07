@@ -1,6 +1,6 @@
 # dphp - Dockerized legacy php
 
-Provide legacy php images updated with all dependencies for legacy application and those that dislike php8+. 
+Provide legacy php images updated with all dependencies for legacy application and those who prefer these versions. 
 The image simply uses php internal server and almalinux+remi packages.
 
 ## Disclaimer
