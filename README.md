@@ -15,6 +15,14 @@ Run the container locally with your current directory mounted:
 docker run -p 8080:8080 -v $(pwd):/app ghcr.io/fkaempfer/dphp:7.4
 ```
 
+Build a container
+
+```Dockerfile
+FROM ghcr.io/fkaempfer/dphp:7.4
+
+COPY --chown=php:php project/ /app/
+```
+
 ## Container Registry & Index
 
 All published images and timestamped tags are hosted on GitHub Container Registry (GHCR):
