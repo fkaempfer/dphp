@@ -4,4 +4,5 @@ Provide legacy php images updated with all dependencies for legacy application a
 The image simply uses php internal server and almalinux+remi packages.
 
 ## Disclaimer
-*Do not expose these applications to the open internet. These are EOL versions of PHP.*
+- *Do not expose these applications to the open internet. These are EOL versions of PHP.*
+- Some of the CI/boilerplate code is AI generated 
