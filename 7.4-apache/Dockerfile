@@ -7,12 +7,17 @@ RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.
     dnf install -y httpd php php-mysqlnd php-gd php-mbstring php-xml && \
     dnf clean all
 
+    COPY 10-php.conf /etc/httpd/conf.modules.d/10-php.conf
+
+RUN sed -i 's/^LoadModule mpm_event_module/#LoadModule mpm_event_module/' /etc/httpd/conf.modules.d/00-mpm.conf && \
+    sed -i 's/^LoadModule mpm_worker_module/#LoadModule mpm_worker_module/' /etc/httpd/conf.modules.d/00-mpm.conf && \
+    sed -i 's/^#LoadModule mpm_prefork_module/LoadModule mpm_prefork_module/' /etc/httpd/conf.modules.d/00-mpm.conf
+
 RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf && \
     sed -i 's#DocumentRoot "/var/www/html"#DocumentRoot "/app"#' /etc/httpd/conf/httpd.conf && \
     sed -i 's#<Directory "/var/www/html">#<Directory "/app">#' /etc/httpd/conf/httpd.conf && \
     sed -i 's/AllowOverride None/AllowOverride All/' /etc/httpd/conf/httpd.conf && \
     sed -i 's#^ErrorLog "logs/error_log"#ErrorLog "/dev/stderr"#' /etc/httpd/conf/httpd.conf
-COPY 10-php.conf /etc/httpd/conf.modules.d/10-php.conf
 
 RUN echo "log_errors = On" >> /etc/php.d/99-legacy.ini && \
     echo "error_log = /dev/stderr" >> /etc/php.d/99-legacy.ini
