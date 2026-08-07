@@ -1,12 +1,13 @@
 # dphp - Dockerized legacy php
 
 Provide legacy php images updated with all dependencies for legacy application and those who prefer these versions. 
-The image simply uses php internal server and almalinux+remi packages.
+The default image simply uses php internal server and almalinux+remi packages. An apache variant is provided.
 
 ## Disclaimer
 - *Do not expose these applications to the open internet. These are EOL versions of PHP.*
 - PHP internal server is slow, especially when serving static assets, it is used to be able to scale the application up easily on k8s
 - Some of the CI/Readme/boilerplate code is AI generated 
+- The Apache variant has .htaccess support enabled by default
 
 ## Quick Start
 
