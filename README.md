@@ -5,6 +5,7 @@ The image simply uses php internal server and almalinux+remi packages.
 
 ## Disclaimer
 - *Do not expose these applications to the open internet. These are EOL versions of PHP.*
+- PHP internal server is slow, especially when serving static assets, it use used to be able to scale the application up easily on k8s
 - Some of the CI/Readme/boilerplate code is AI generated 
 
 ## Quick Start
