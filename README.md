@@ -7,7 +7,7 @@ The default image simply uses php internal server and almalinux+remi packages. A
 - *Do not expose these applications to the open internet. These are EOL versions of PHP.*
 - PHP internal server is slow, especially when serving static assets, it is used to be able to scale the application up easily on k8s
 - Some of the CI/Readme/boilerplate code is AI generated 
-- The Apache variant has .htaccess support enabled by default
+- The Apache variant has .htaccess support enabled by default. Also it needs a writable /etc/httpd/run directory (mount with tmpfs)
 
 ## Quick Start
 
