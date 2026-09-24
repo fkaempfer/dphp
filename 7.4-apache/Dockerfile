@@ -4,7 +4,7 @@ RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.
   https://rpms.remirepo.net/enterprise/remi-release-10.rpm && \
   dnf module reset php -y && \
   dnf module enable php:remi-7.4 -y && \
-  dnf install -y httpd php php-mysqlnd php-gd php-mbstring php-xml && \
+  dnf install -y httpd php php-mysqlnd php-gd php-mbstring php-xml php-pdo php-pgsql && \
   dnf clean all
 
 
