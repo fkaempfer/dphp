@@ -15,7 +15,7 @@ RUN rm /etc/httpd/conf.modules.d/00-mpm.conf
 RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf && \
     sed -i -E 's/^([[:space:]]*)(CustomLog|ErrorLog)[[:space:]]+"?logs\//\1# \2 logs\//g' /etc/httpd/conf/httpd.conf
 
-COPY 99-httpd-docker.conf /etc/httpd/conf.d/99-httd-docker.conf
+COPY 99-httpd-docker.conf /etc/httpd/conf.d/99-httpd-docker.conf
 
 COPY 99-php-docker.ini /etc/php/conf.d/99-php-docker.ini
 
