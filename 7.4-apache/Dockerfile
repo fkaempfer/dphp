@@ -7,6 +7,7 @@ RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.
   dnf install -y httpd php php-mysqlnd php-gd php-mbstring php-xml php-pdo php-pgsql && \
   dnf clean all
 
+ENV WEB_ROOT="/app"
 
 COPY 10-php.conf /etc/httpd/conf.modules.d/10-php.conf
 
