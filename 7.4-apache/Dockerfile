@@ -7,14 +7,14 @@ RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.
   dnf install -y httpd php php-mysqlnd php-gd php-mbstring php-xml php-pdo php-pgsql && \
   dnf clean all
 
-ENV WEB_ROOT="/app"
-
 COPY 10-php.conf /etc/httpd/conf.modules.d/10-php.conf
 
 RUN rm /etc/httpd/conf.modules.d/00-mpm.conf 
 
 RUN sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf && \
     sed -i -E 's/^([[:space:]]*)(CustomLog|ErrorLog)[[:space:]]+"?logs\//\1# \2 logs\//g' /etc/httpd/conf/httpd.conf
+
+COPY 80-webroot.conf /etc/httpd/conf.d/80-webroot.conf
 
 COPY 99-httpd-docker.conf /etc/httpd/conf.d/99-httpd-docker.conf
 
